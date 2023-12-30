@@ -1,1 +1,58 @@
+def find_closest_numbers(numbers):
 
+ """
+ This function finds the two numbers in a list that are closest to each other in terms of their value.
+
+ Args:
+   numbers: A list of integers.
+
+ Returns:
+   A tuple containing the two closest numbers and their difference.
+ """
+
+
+ # Initialize variables to store the closest numbers and their difference
+
+ closest_numbers = (None, None)
+
+ smallest_difference = float('inf')     # Initialize with a very large value
+
+
+
+ # Loop through each pair of numbers in the list
+
+ for i in range(len(numbers) - 1):
+
+  for j in range(i + 1, len(numbers)):
+
+   # Calculate the absolute difference between the current pair of numbers
+
+   current_difference = abs(numbers[i] - numbers[j])
+
+
+
+   # Update the closest numbers and smallest difference if necessary
+
+   if current_difference < smallest_difference:
+
+    smallest_difference = current_difference
+
+    closest_numbers = (numbers[i], numbers[j])
+
+
+
+ # Return the closest numbers and their difference
+
+ return closest_numbers, smallest_difference
+
+
+
+# Code implementation
+
+numbers = [2, 9, 12, 17, 25, 27, 33, 40]
+
+closest_numbers, difference = find_closest_numbers(numbers)
+
+
+
+print(f"Closest numbers: {closest_numbers[0]}, {closest_numbers[1]}, Difference: {difference}")
